@@ -1,0 +1,42 @@
+
+*{
+    margin: 0;
+}
+.header{
+    background-color: rgb(91, 161, 163);
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+input{
+    border-radius: 25px;
+    height: 25px;
+    width: 25%;
+    border:none;
+    
+}
+.fas{
+   margin-left: -25px;
+    color: gray;
+}
+.bodyTitle{
+    color: rgb(97, 94, 94);
+    font-size: x-large;
+    margin: auto;
+    width: 50%;
+    border-bottom: 1px solid  rgb(52, 138, 141);
+    padding: 10px;
+    text-align: center;
+
+}
+
+.items{
+   
+    width: 80%;
+    height: 400px;
+    margin: auto;
+
+}
