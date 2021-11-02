@@ -1,4 +1,4 @@
-let ARTIST_NAME='ad';
+let ARTIST_NAME="";
 const items=document.querySelector('.items');
 const search=document.querySelector('.fas');
 const input=document.querySelector('.input');
@@ -7,25 +7,42 @@ let newArist_name=''
 
 
 
-const url=`https://itunes.apple.com/search?term=${ARTIST_NAME}&media=music&entity=album&attribute=artistTerm&limit=200`;
+// const url=`https://itunes.apple.com/search?term=${ARTIST_NAME}&media=music&entity=album&attribute=artistTerm&limit=200`;
 
-fetchJsonp(url)
-.then((res)=>res.json())
-.then((data)=>{
-displayResult(data.results);
-})
+// fetchJsonp(url)
+// .then((res)=>res.json())
+// .then((data)=>{
+// displayResult(data.results);
+// })
 
-input.addEventListener('change',(e)=>{
-    e.preventDefault();
-    let input=e.target.value;
-    search.addEventListener('click',()=>{
-        ARTIST_NAME=input;
-       newArist_name=ARTIST_NAME;
-       console.log(ARTIST_NAME);
-    })
-    console.log(ARTIST_NAME);
+// input.addEventListener('change',(e)=>{
+//     e.preventDefault();
+//     let input=e.target.value;
+//     search.addEventListener('click',()=>{
+//         ARTIST_NAME=input;
+//        newArist_name=ARTIST_NAME;
+//        console.log(ARTIST_NAME);
+//     })
+//     console.log(ARTIST_NAME);
 
-})
+// })
+function fetchSearch(searchValue){
+  const url=`https://itunes.apple.com/search?term=${ARTIST_NAME}&media=music&entity=album&attribute=artistTerm&limit=200`;
+
+  fetchJsonp(url)
+  .then((res)=>res.json())
+  .then((data)=>{
+  displayResult(data.results);
+  });
+}
+
+window.onload=()=>{
+  input.onkeyup=(e)=>{
+    console.log(input.value);
+    ARTIST_NAME=input.value;
+    fetchSearch(ARTIST_NAME);
+  }
+}
 
 function displayResult(albumArr){
     let template = '';
